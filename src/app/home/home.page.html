@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Lista de cantantes con una canción
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-input [(ngModel)]="filtro" placeholder="Introduce el nombre del cantante que desea buscar (respetando las mayúsculas y las minúsculas)"></ion-input>
+  <ion-grid>
+    <ion-row>
+      <ng-container *ngFor="let singer of singers | async">
+        <ion-col *ngIf="filtro=='' || singer.singer.startsWith(filtro)" size-xl="2" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+          <ion-card>
+            <ion-card-content>
+              <ion-avatar><img [src]="singer.image"></ion-avatar>
+              <h1>{{ singer.singer }}</h1>
+              <h2>{{ singer.song }}</h2>
+              <p>{{ singer.genre }}</p>
+              <p>{{ singer.duration }}</p>
+              <p>{{ singer.release_date }}</p>
+
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ng-container>
+    </ion-row>
+  </ion-grid>
+</ion-content>

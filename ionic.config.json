@@ -1,0 +1,7 @@
+{
+  "name": "Act1.14HLC",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
